@@ -32,7 +32,7 @@ By default all the mongodb instances are not protected by any password with such
 
 *This is a simple Shodan Query for mongodb on shodan: https://www.shodan.io/search?query=mongodb*
 
-*Not all instances of mongodb you will find are open, some instances might be password protected , in that case we can try bruteforcing the password , there is a nmap NSE script for this purpose:: https://nmap.org/nsedoc/scripts/mongodb-brute.html *
+*Not all instances of mongodb you will find are open, some instances might be password protected , in that case we can try bruteforcing the password , there is a nmap NSE script for this purpose:: https://nmap.org/nsedoc/scripts/mongodb-brute.html*
 
 **very soon a python script to bruteforce mongodb will also be released as part of this repo**
 
