@@ -33,6 +33,3 @@ By default all the mongodb instances are not protected by any username and passw
 *This is a simple Shodan Query for mongodb on shodan: https://www.shodan.io/search?query=mongodb*
 
 ![shodan](https://github.com/SxNade/dogo/blob/main/mongodb.png)
-
-
-
