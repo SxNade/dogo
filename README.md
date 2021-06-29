@@ -3,7 +3,7 @@ dogo is a simple python3 program to dump mongodb database all in one go
 
 # what does dogo do
 
-By default all the mongodb instances are not protected by any username and password with such instances open to the internet attackers can dump the database to steal sensitive information and might possbily even gain unauthorized access to the infrastructure.
+By default all the mongodb instances are not protected by any password with such instances open to the internet attackers can dump the database to steal sensitive information and might possbily even gain unauthorized access to the infrastructure.
 
 **mongo-db instances can often reveal some critical information such as target-OS target-arch and even what programs are installed, This can save time spent in fingerprinting and help us craft more precise attacks**
 
