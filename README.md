@@ -1,4 +1,7 @@
 # dogo
+
+![](https://i.pinimg.com/originals/5c/10/6e/5c106e7f7095aef477091236a41d3d57.png)
+
 dogo is a simple python3 program to dump mongodb database all in one go
 
 # what does dogo do
